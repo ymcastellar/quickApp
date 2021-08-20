@@ -19,4 +19,3 @@ _Developed by_
 - Github - [ymcastellar](https://github.com/ymcastellar)
 - Twitter - [@CastellarYoyman](https://twitter.com/CastellarYoyman)
 - LinkedIn - [yoyman-castellar](https://www.linkedin.com/in/yoyman-castellar/) 
-# quickApp
