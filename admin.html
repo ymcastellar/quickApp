@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Quick app</title>
+</head>
+
+<body onload="loadUser()">
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container pos-relative">
+      <i class="fas fa-bolt"><a class="navbar-brand" href="/home.html"></a></i>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse pos-right" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Administrador</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><span id="username"></span></a>
+          </li>
+          <li class="nav-item pt-2">
+            <input type="button" class="btn-logout rounded" value="logout" onclick="logOut()">
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+  <!-- Tabs -->
+  <div class="container">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="navAthlete-tab" data-bs-toggle="tab" data-bs-target="#navAthlete"
+          type="button" role="tab" aria-controls="navAthlete" aria-selected="true">Athlete's Table</button>
+        <button class="nav-link" id="navCategories-tab" data-bs-toggle="tab" data-bs-target="#navCategories"
+          type="button" role="tab" aria-controls="navCategories" aria-selected="false">Categories</button>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="navAthlete" role="tabpanel" aria-labelledby="navAthlete-tab">
+        <!-- <div class="container">
+          <div class="table-responsive">
+            <table class="table table-striped" id="bigTable" style="width:100%">
+              <thead>
+                <tr>
+                  <th>Athlete</th>
+                  <th>Age</th>
+                  <th>Country</th>
+                  <th>Year</th>
+                  <th>Date</th>
+                  <th>Sport</th>
+                  <th>Gold</th>
+                  <th>Silver</th>
+                  <th>Bronze</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody id="myTable"></tbody>
+            </table>
+          </div>
+        </div>-->
+      </div>
+      <div class="tab-pane fade" id="navCategories" role="tabpanel" aria-labelledby="navCategories-tab">
+        <!-- gold meda modal -->
+        <button type="button" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#goldMedal">
+          Gold Medal
+        </button>
+
+        <!-- gold medal Modal -->
+        <div class="modal fade" id="goldMedal" tabindex="-1" aria-labelledby="goldMedalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="goldMedalLabel">Gold Medal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>A gold medal is a medal awarded for highest achievement in a non-military field. Its name derives
+                  from
+                  the use of at least a fraction of gold in form of plating or alloying in its manufacture.</p> <br>
+
+                <p>Since the eighteenth century, gold medals have been awarded in the arts, for example, by the Royal
+                  Danish Academy of Fine Arts, usually as a symbol of an award to give an outstanding student some
+                  financial freedom. Others offer only the prestige of the award. Many organizations now award gold
+                  medals
+                  either annually or extraordinarily, including various academic societies.</p> <br>
+
+                <p>While some gold medals are solid gold, others are gold-plated or silver-gilt, like those of the
+                  Olympic
+                  Games, the Lorentz Medal, the United States Congressional Gold Medal and the Nobel Prize medal. Nobel
+                  Prize medals consist of 18 karat green gold plated with 24 karat gold. Before 1980 they were struck in
+                  23 karat gold.</p> <br>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Button silver modal -->
+        <button type="button" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#silverMedal">
+          Silver Medal
+        </button>
+
+        <!-- Silver Medal Modal -->
+        <div class="modal fade" id="silverMedal" tabindex="-1" aria-labelledby="silverMedalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="silverMedalLabel">Silver Medal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>A silver medal in sports and other similar areas involving competition is a medal made of, or plated
+                  with, silver awarded to the second-place finisher, or runner-up, of contests or competitions such as
+                  the Olympic Games, Commonwealth Games, etc. The outright winner receives a gold medal and the third
+                  place a bronze medal. More generally, silver is traditionally a metal sometimes used for all types of
+                  high-quality medals, including artistic ones.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#bronzeMedal">
+          Bronze Medal
+        </button>
+
+        <!-- bronze Medal Modal -->
+        <div class="modal fade" id="bronzeMedal" tabindex="-1" aria-labelledby="bronzeMedalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="bronzeMedalLabel">Bronze Medal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>A bronze medal in sports and other similar areas involving competition is a medal made of bronze
+                  awarded to the third-place finisher of contests or competitions such as the Olympic Games,
+                  Commonwealth Games, etc. The outright winner receives a gold medal and the second place a silver
+                  medal. More generally, bronze is traditionally the most common metal used for all types of
+                  high-quality medals, including artistic ones. The practice of awarding bronze third place medals began
+                  at the 1904 Olympic Games in St. Louis, Missouri, before which only first and second places were
+                  awarded.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- bootstrap scritps-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"></script>
+        <!--Local Scripts-->
+        <script src="js/script.js"></script>
+        <script src="js/requestApi.js"></script>
+        <!--Font awesome icons-->
+        <script src="https://kit.fontawesome.com/4003980c66.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
